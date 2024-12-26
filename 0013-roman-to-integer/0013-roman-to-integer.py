@@ -8,7 +8,7 @@ class Solution:
                     'D': 500,
                     'M': 1000}
         
-        sum, i = 0, 0
+        sum = 0
         for i in range(len(s) - 1):
             if intmap[s[i]] < intmap[s[i+1]]:
                 sum -= intmap[s[i]]
