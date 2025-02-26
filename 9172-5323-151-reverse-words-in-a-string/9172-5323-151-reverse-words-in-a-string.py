@@ -1,17 +1,13 @@
+from collections import deque
+
 class Solution(object):
     def reverseWords(self, s):
-        s += " "
-        str_arr = []
-        word = ""
-        for i in range(len(s)):
-            if s[i] == " ":
-                if word.isalnum():
-                    str_arr.append(word)
-                word = ""
-            else:
-                word += s[i]
-        
-        while str_arr:
-            word += str_arr.pop() + " "
-        
-        return word[0:-1]
+        words = s.split()
+        left, right = 0, len(words) - 1
+
+        while left < right:
+            words[left], words[right] = words[right], words[left]
+            left += 1
+            right -= 1
+
+        return " ".join(words) 
